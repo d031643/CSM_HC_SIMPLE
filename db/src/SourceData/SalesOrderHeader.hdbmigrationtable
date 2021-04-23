@@ -1,0 +1,17 @@
+== version=1 
+COLUMN TABLE "SalesOrderHeader" (
+	"RecordMode" NVARCHAR(1),
+	"SalesOrderID" INTEGER,
+	"OrderDate" SECONDDATE,
+	"CustomerName" NVARCHAR(100),
+	"ProductName" NVARCHAR(100),
+	"OrderQuantity" INTEGER,
+	"Sales" DECIMAL(15, 2),
+	PRIMARY KEY ("RecordMode", "SalesOrderID", "OrderDate")
+)
+UNLOAD PRIORITY 5 AUTO MERGE
+PARTITION BY RANGE ("OrderDate")(
+    ( PARTITION '1900-01-01' <= VALUES < '2017-12-31', PARTITION '2018-01-01' <= VALUES < '2018-12-31', 
+    PARTITION '2019-01-01' <= VALUES < '2019-12-31', PARTITION '2020-01-01' <= VALUES < '2020-12-31', 
+    PARTITION '2021-01-01' <= VALUES < '9999-12-31', PARTITION OTHERS )
+);
