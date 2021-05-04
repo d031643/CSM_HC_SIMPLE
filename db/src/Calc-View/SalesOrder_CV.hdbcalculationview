@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="SalesOrder_CV" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:DataFoundation="http://www.sap.com/ndb/BiModelDataFoundation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="SalesOrder_CV" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="SalesOrder_CV">
   <comment text="SalesOrder Calc-View"/>
 </descriptions>
@@ -35,13 +35,8 @@
       <viewAttribute id="CHANGEDAT"/>
       <viewAttribute id="FISCVARIANT"/>
       <viewAttribute id="FISCALYEARPERIOD"/>
-      <viewAttribute id="NOTEID_1"/>
       <viewAttribute id="PARTNERID"/>
       <viewAttribute id="SALESORG"/>
-      <viewAttribute id="CURRENCY_1"/>
-      <viewAttribute id="GROSSAMOUNT_1" aggregationType="sum"/>
-      <viewAttribute id="NETAMOUNT_1" aggregationType="sum"/>
-      <viewAttribute id="TAXAMOUNT_1" aggregationType="sum"/>
       <viewAttribute id="LIFECYCLESTATUS"/>
       <viewAttribute id="BILLINGSTATUS"/>
       <viewAttribute id="DELIVERYSTATUS"/>
@@ -55,13 +50,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CHANGEDAT" source="CHANGEDAT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FISCVARIANT" source="FISCVARIANT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FISCALYEARPERIOD" source="FISCALYEARPERIOD"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="NOTEID_1" source="NOTEID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SALESORG" source="SALESORG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY_1" source="CURRENCY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT_1" source="GROSSAMOUNT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT_1" source="NETAMOUNT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT_1" source="TAXAMOUNT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BILLINGSTATUS" source="BILLINGSTATUS"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYSTATUS" source="DELIVERYSTATUS"/>
@@ -149,31 +139,23 @@
       <descriptions defaultDescription="FISCALYEARPERIOD"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="FISCALYEARPERIOD"/>
     </attribute>
-    <attribute id="NOTEID_1" order="20" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NOTEID_1"/>
-      <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="NOTEID_1"/>
-    </attribute>
-    <attribute id="PARTNERID" order="21" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PARTNERID" order="20" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PARTNERID"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="PARTNERID"/>
     </attribute>
-    <attribute id="SALESORG" order="22" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="SALESORG" order="21" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="SALESORG"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="SALESORG"/>
     </attribute>
-    <attribute id="CURRENCY_1" order="23" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CURRENCY_1"/>
-      <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="CURRENCY_1"/>
-    </attribute>
-    <attribute id="LIFECYCLESTATUS" order="27" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="LIFECYCLESTATUS" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="LIFECYCLESTATUS"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="LIFECYCLESTATUS"/>
     </attribute>
-    <attribute id="BILLINGSTATUS" order="28" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="BILLINGSTATUS" order="23" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="BILLINGSTATUS"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="BILLINGSTATUS"/>
     </attribute>
-    <attribute id="DELIVERYSTATUS" order="29" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="DELIVERYSTATUS" order="24" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="DELIVERYSTATUS"/>
       <keyMapping columnObjectName="SalesOrderItems_JOIN" columnName="DELIVERYSTATUS"/>
     </attribute>
@@ -195,29 +177,16 @@
     <measure id="QUANTITY" order="11" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="QUANTITY"/>
       <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="QUANTITY"/>
-    </measure>
-    <measure id="GROSSAMOUNT_1" order="24" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="GROSSAMOUNT_1"/>
-      <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="GROSSAMOUNT_1"/>
-    </measure>
-    <measure id="NETAMOUNT_1" order="25" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="NETAMOUNT_1"/>
-      <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="NETAMOUNT_1"/>
-    </measure>
-    <measure id="TAXAMOUNT_1" order="26" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="TAXAMOUNT_1"/>
-      <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="TAXAMOUNT_1"/>
-    </measure>
-  </baseMeasures>
+    </measure></baseMeasures>
   <calculatedMeasures>
-    <measure id="UNKNOWN_CALCULATION_SEMANTICS" hidden="false" order="30" aggregationType="avg" measureType="simple" aggregatable="true" datatype="DECIMAL" length="30" scale="2" expressionLanguage="SQL">
+    <measure id="UNKNOWN_CALCULATION_SEMANTICS" hidden="false" order="25" aggregationType="avg" measureType="simple" aggregatable="true" datatype="DECIMAL" length="30" scale="2" expressionLanguage="SQL">
       <descriptions defaultDescription="UNKNOWN_CALCULATION_SEMANTICS"/>
       <formula>&quot;GROSSAMOUNT&quot;*&quot;QUANTITY&quot;</formula>
     
       </measure>
   </calculatedMeasures>
   <restrictedMeasures>
-    <measure id="SALESORG_RES" order="31" aggregationType="sum" datatype="DECIMAL" length="15" scale="2" baseMeasure="GROSSAMOUNT">
+    <measure id="SALESORG_RES" order="26" aggregationType="sum" datatype="DECIMAL" length="15" scale="2" baseMeasure="GROSSAMOUNT">
       <descriptions defaultDescription="SALESORG_RES"/>
       <restriction logicalOperator="AND">
         <filter xsi:type="Privilege:AttributeFilter" attributeName="SALESORG">
@@ -227,7 +196,19 @@
       </restriction>
       </measure>
   </restrictedMeasures>
-  <localDimensions/>
+  <localDimensions>
+    <localDimension id="HIER_SO_PARENT_CHILD">
+      <attributeRef xsi:type="DataFoundation:Attribute">SALESORDERITEM</attributeRef>
+      <attributeRef xsi:type="DataFoundation:Attribute">SALESORDERID</attributeRef>
+      <hierarchies>
+        <hierarchy xsi:type="Dimension:ParentChildHierarchy" id="HIER_SO_PARENT_CHILD" aggregateAllNodes="false" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE_IF_DEFINED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="false">
+          <descriptions defaultDescription="HIER_SO_PARENT_CHILD"/>
+          <unassignedMemberProperties mode="FALSE"/>
+          <attributeParentPair attribute="SALESORDERITEM" parentAttribute="SALESORDERID"/>
+        </hierarchy>
+      </hierarchies>
+    </localDimension>
+  </localDimensions>
 </logicalModel>
 <layout>
   <shapes>
