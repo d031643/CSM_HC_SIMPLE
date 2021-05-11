@@ -174,19 +174,18 @@
       <descriptions defaultDescription="TAXAMOUNT"/>
       <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="TAXAMOUNT"/>
     </measure>
-    <measure id="QUANTITY" order="11" aggregationType="sum" measureType="simple">
+    <measure id="QUANTITY" order="11" aggregationType="min" measureType="simple" engineAggregation="sum">
       <descriptions defaultDescription="QUANTITY"/>
       <measureMapping columnObjectName="SalesOrderItems_JOIN" columnName="QUANTITY"/>
     </measure></baseMeasures>
   <calculatedMeasures>
-    <measure id="UNKNOWN_CALCULATION_SEMANTICS" hidden="false" order="25" aggregationType="avg" measureType="simple" aggregatable="true" datatype="DECIMAL" length="30" scale="2" expressionLanguage="SQL">
+    <measure id="UNKNOWN_CALCULATION_SEMANTICS" order="26" aggregationType="avg" measureType="simple" aggregatable="true" datatype="DECIMAL" length="30" scale="2" expressionLanguage="SQL">
       <descriptions defaultDescription="UNKNOWN_CALCULATION_SEMANTICS"/>
       <formula>&quot;GROSSAMOUNT&quot;*&quot;QUANTITY&quot;</formula>
-    
-      </measure>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures>
-    <measure id="SALESORG_RES" order="26" aggregationType="sum" datatype="DECIMAL" length="15" scale="2" baseMeasure="GROSSAMOUNT">
+    <measure id="SALESORG_RES" order="25" aggregationType="sum" datatype="DECIMAL" length="15" scale="2" baseMeasure="GROSSAMOUNT">
       <descriptions defaultDescription="SALESORG_RES"/>
       <restriction logicalOperator="AND">
         <filter xsi:type="Privilege:AttributeFilter" attributeName="SALESORG">
@@ -194,7 +193,7 @@
         </filter>
         <attributeName>SALESORG</attributeName>
       </restriction>
-      </measure>
+    </measure>
   </restrictedMeasures>
   <localDimensions>
     <localDimension id="HIER_SO_PARENT_CHILD">
