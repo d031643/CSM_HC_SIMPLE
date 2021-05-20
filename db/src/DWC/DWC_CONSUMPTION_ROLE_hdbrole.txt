@@ -1,0 +1,18 @@
+{ 
+  "role": { 
+    "name": "DWC_CONSUMPTION_ROLE#", 
+    "object_privileges": [ 
+      { 
+        "name":"SalesOrder_CV", 
+        "type":"VIEW", 
+        "privileges_with_grant_option":[ "SELECT" ] 
+      }
+    ],
+    "schema_privileges":[ 
+      { 
+        "reference":"CSMHC_1", 
+        "privileges_with_grant_option":[ "SELECT" ] 
+      }       
+    ]
+  }
+}

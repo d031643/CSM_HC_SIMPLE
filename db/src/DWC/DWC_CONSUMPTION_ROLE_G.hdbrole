@@ -1,12 +1,10 @@
 { 
   "role": { 
     "name": "DWC_CONSUMPTION_ROLE", 
-    "object_privileges": [ 
+    "schema_privileges":[ 
       { 
-        "name":"SalesOrder_CV", 
-        "type":"VIEW", 
         "privileges":[ "SELECT" ] 
-      }
+      }       
     ]
   }
 }

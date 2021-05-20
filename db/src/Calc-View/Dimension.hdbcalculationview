@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="Dimension" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Dimension"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SalesOrderHeader">
+    <resourceUri>SalesOrderHeader</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+
+<logicalModel id="SalesOrderHeader">
+  <attributes>
+    <attribute id="CustomerName" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerName"/>
+      <keyMapping columnObjectName="SalesOrderHeader" columnName="CustomerName"/>
+    </attribute>
+    <attribute id="ProductName" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ProductName"/>
+      <keyMapping columnObjectName="SalesOrderHeader" columnName="ProductName"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>
