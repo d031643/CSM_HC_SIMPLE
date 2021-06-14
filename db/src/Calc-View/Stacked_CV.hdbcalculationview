@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="Stacked_CV" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Stacked_CV"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SalesOrder_CV">
+    <resourceUri>SalesOrder_CV</resourceUri>
+  </DataSource>
+  <DataSource id="Dimension">
+    <resourceUri>Dimension</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID"/>
+      <viewAttribute id="SALESORDERITEM"/>
+      <viewAttribute id="PRODUCTID"/>
+      <viewAttribute id="NOTEID"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="GROSSAMOUNT" aggregationType="sum"/>
+      <viewAttribute id="SALESORG_RES" aggregationType="sum"/>
+      <viewAttribute id="NETAMOUNT" aggregationType="sum"/>
+      <viewAttribute id="TAXAMOUNT" aggregationType="sum"/>
+      <viewAttribute id="ITEMATPSTATUS"/>
+      <viewAttribute id="OPITEMPOS"/>
+      <viewAttribute id="QUANTITY" aggregationType="min"/>
+      <viewAttribute id="QUANTITYUNIT"/>
+      <viewAttribute id="DELIVERYDATE"/>
+      <viewAttribute id="CREATEDBY"/>
+      <viewAttribute id="CREATEDAT"/>
+      <viewAttribute id="CHANGEDBY"/>
+      <viewAttribute id="CHANGEDAT"/>
+      <viewAttribute id="FISCVARIANT"/>
+      <viewAttribute id="FISCALYEARPERIOD"/>
+      <viewAttribute id="PARTNERID"/>
+      <viewAttribute id="SALESORG"/>
+      <viewAttribute id="LIFECYCLESTATUS"/>
+      <viewAttribute id="BILLINGSTATUS"/>
+      <viewAttribute id="DELIVERYSTATUS"/>
+      <viewAttribute id="UNKNOWN_CALCULATION_SEMANTICS" aggregationType="sum"/>
+      <viewAttribute id="CustomerName"/>
+      <viewAttribute id="ProductName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="SalesOrder_CV">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERITEM" source="SALESORDERITEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTEID" source="NOTEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORG_RES" source="SALESORG_RES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ITEMATPSTATUS" source="ITEMATPSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPITEMPOS" source="OPITEMPOS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYDATE" source="DELIVERYDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATEDBY" source="CREATEDBY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATEDAT" source="CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHANGEDBY" source="CHANGEDBY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHANGEDAT" source="CHANGEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FISCVARIANT" source="FISCVARIANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FISCALYEARPERIOD" source="FISCALYEARPERIOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORG" source="SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILLINGSTATUS" source="BILLINGSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYSTATUS" source="DELIVERYSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNKNOWN_CALCULATION_SEMANTICS" source="UNKNOWN_CALCULATION_SEMANTICS"/>
+    </input>
+    <input node="Dimension">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductName" source="ProductName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDER_ID_DT"/>
+    </input>
+    <joinAttribute name="SALESORDERID"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="SALESORDERID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="SALESORDERITEM" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERITEM"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORDERITEM"/>
+    </attribute>
+    <attribute id="PRODUCTID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="NOTEID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOTEID"/>
+      <keyMapping columnObjectName="Join_1" columnName="NOTEID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="ITEMATPSTATUS" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ITEMATPSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="ITEMATPSTATUS"/>
+    </attribute>
+    <attribute id="OPITEMPOS" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPITEMPOS"/>
+      <keyMapping columnObjectName="Join_1" columnName="OPITEMPOS"/>
+    </attribute>
+    <attribute id="QUANTITYUNIT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUANTITYUNIT"/>
+      <keyMapping columnObjectName="Join_1" columnName="QUANTITYUNIT"/>
+    </attribute>
+    <attribute id="DELIVERYDATE" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERYDATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="DELIVERYDATE"/>
+    </attribute>
+    <attribute id="CREATEDBY" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDBY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CREATEDBY"/>
+    </attribute>
+    <attribute id="CREATEDAT" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CREATEDAT"/>
+    </attribute>
+    <attribute id="CHANGEDBY" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHANGEDBY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CHANGEDBY"/>
+    </attribute>
+    <attribute id="CHANGEDAT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHANGEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CHANGEDAT"/>
+    </attribute>
+    <attribute id="FISCVARIANT" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FISCVARIANT"/>
+      <keyMapping columnObjectName="Join_1" columnName="FISCVARIANT"/>
+    </attribute>
+    <attribute id="FISCALYEARPERIOD" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FISCALYEARPERIOD"/>
+      <keyMapping columnObjectName="Join_1" columnName="FISCALYEARPERIOD"/>
+    </attribute>
+    <attribute id="PARTNERID" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="SALESORG" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORG"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORG"/>
+    </attribute>
+    <attribute id="LIFECYCLESTATUS" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="LIFECYCLESTATUS"/>
+    </attribute>
+    <attribute id="BILLINGSTATUS" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BILLINGSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="BILLINGSTATUS"/>
+    </attribute>
+    <attribute id="DELIVERYSTATUS" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERYSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="DELIVERYSTATUS"/>
+    </attribute>
+    <attribute id="CustomerName" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerName"/>
+      <keyMapping columnObjectName="Join_1" columnName="CustomerName"/>
+    </attribute>
+    <attribute id="ProductName" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ProductName"/>
+      <keyMapping columnObjectName="Join_1" columnName="ProductName"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="GROSSAMOUNT" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="GROSSAMOUNT"/>
+    </measure>
+    <measure id="SALESORG_RES" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SALESORG_RES"/>
+      <measureMapping columnObjectName="Join_1" columnName="SALESORG_RES"/>
+    </measure>
+    <measure id="NETAMOUNT" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="NETAMOUNT"/>
+    </measure>
+    <measure id="TAXAMOUNT" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAXAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="TAXAMOUNT"/>
+    </measure>
+    <measure id="QUANTITY" order="12" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="QUANTITY"/>
+      <measureMapping columnObjectName="Join_1" columnName="QUANTITY"/>
+    </measure>
+    <measure id="UNKNOWN_CALCULATION_SEMANTICS" order="26" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="UNKNOWN_CALCULATION_SEMANTICS"/>
+      <measureMapping columnObjectName="Join_1" columnName="UNKNOWN_CALCULATION_SEMANTICS"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-70" y="227"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="SalesOrder_CV" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="111" y="3"/>
+      <rectangleSize width="195.82275390625"/>
+    </shape>
+    <shape modelObjectName="Dimension" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="505" y="34"/>
+      <rectangleSize width="199.08837890625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
