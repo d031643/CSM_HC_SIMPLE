@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="TK" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="TK.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="YAM_DEMO_STATIONS_2021">
+    <resourceUri>YAM_DEMO_STATIONS_2021</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="uuid"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="brand"/>
+      <viewAttribute id="street"/>
+      <viewAttribute id="house_number"/>
+      <viewAttribute id="post_code"/>
+      <viewAttribute id="city"/>
+      <viewAttribute id="latitude"/>
+      <viewAttribute id="longtitude"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="YAM_DEMO_STATIONS_2021"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="uuid" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="uuid"/>
+      <keyMapping columnObjectName="Projection_1" columnName="uuid"/>
+    </attribute>
+    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="Projection_1" columnName="name"/>
+    </attribute>
+    <attribute id="brand" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="brand"/>
+      <keyMapping columnObjectName="Projection_1" columnName="brand"/>
+    </attribute>
+    <attribute id="street" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="street"/>
+      <keyMapping columnObjectName="Projection_1" columnName="street"/>
+    </attribute>
+    <attribute id="house_number" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="house_number"/>
+      <keyMapping columnObjectName="Projection_1" columnName="house_number"/>
+    </attribute>
+    <attribute id="post_code" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="post_code"/>
+      <keyMapping columnObjectName="Projection_1" columnName="post_code"/>
+    </attribute>
+    <attribute id="city" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="city"/>
+      <keyMapping columnObjectName="Projection_1" columnName="city"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="latitude" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="latitude"/>
+      <measureMapping columnObjectName="Projection_1" columnName="latitude"/>
+    </measure>
+    <measure id="longtitude" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="longtitude"/>
+      <measureMapping columnObjectName="Projection_1" columnName="longtitude"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-226" y="150"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
