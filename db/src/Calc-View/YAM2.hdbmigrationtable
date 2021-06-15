@@ -1,0 +1,13 @@
+ == version=1 
+COLUMN TABLE "YAM2_DEMO_STATIONS_2021"(
+	"uuid" NVARCHAR(50),
+	"name" NVARCHAR(1000),
+	"brand" NVARCHAR(1000),
+	"street" NVARCHAR(500),
+	"house_number" NVARCHAR(20),
+	"post_code" NVARCHAR(10),
+	"city" NVARCHAR(34),
+	"latitude" DOUBLE,
+	"longtitude" DOUBLE
+)
+UNLOAD PRIORITY 5 AUTO MERGE;
